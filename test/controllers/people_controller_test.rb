@@ -2,8 +2,8 @@ require 'test_helper'
 
 class PeopleControllerTest < ActionController::TestCase
   setup do
-    process_scenario :basic_simpsons
-    @person = marge
+    process_scenario :simpsons_scenario
+    @person = @marge
   end
 
   test "should get index" do

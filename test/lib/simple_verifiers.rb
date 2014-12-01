@@ -23,21 +23,23 @@ module SimpleVerifiers
 
     assert_equal @datum.id == 1 ? str : "#{str} #{@datum.id}",
     @datum.basic_string
-    assert_equal @datum.id.ordinalize, @datum.datum_label
+    assert_equal @datum.id, @datum.datum_label
     assert_equal @datum.id, @datum.basic_int
     assert_equal true, @datum.basic_true_boolean
     assert_equal false, @datum.basic_false_boolean
   end
 
-  def verify_import_scenario
+  def verify_lou lou
+    verify_person lou, "Lou", "Police-Officer"
+    assert_equal ONLINE_STATUS_MASK, lou.status_mask
+  end
+
+  def verify_import_scenario clancy, eddie
     verify_person clancy, "Clancy", "Wiggum"
     assert_equal OFFLINE_STATUS_MASK, clancy.status_mask
 
     verify_person eddie, "Eddie", "Police-Officer"
     assert_equal nil, eddie.status_mask
-
-    verify_person lou,   "Lou", "Police-Officer"
-    assert_equal ONLINE_STATUS_MASK, lou.status_mask
   end
 
 end
