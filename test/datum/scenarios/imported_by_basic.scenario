@@ -1,0 +1,16 @@
+clancy:
+  _model: "Person"
+  first_name: "Clancy"
+  last_name: "Wiggum"
+  status_mask: <%=OFFLINE_STATUS_MASK%>
+
+eddie:
+  _model: "Person"
+  first_name: "Eddie"
+  last_name: "Police-Officer"
+
+lou:
+  _model: "Person"
+  first_name: "Lou"
+  last_name: "Police-Officer"
+  status_mask: <%=ONLINE_STATUS_MASK%>

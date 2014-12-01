@@ -1,0 +1,36 @@
+
+homer_chk:
+  person_label: "homer"
+  first_name: "Homer"
+  last_name: "Simpson"
+  name: "Homer Simpson"
+
+marge_chk:
+  person_label: "marge"
+  first_name: "Marge"
+  last_name: "Simpson"
+  name: "Marge Simpson"
+
+bart_chk:
+  person_label: "bart"
+  first_name: "Bart"
+  last_name: "Simpson"
+  name: "Bart Simpson"
+
+clancy_chk:
+  person_label: "clancy"
+  first_name: "Clancy"
+  last_name: "Wiggum"
+  name: "Homer Simpson"
+
+eddie_chk:
+  person_label: "eddie"
+  first_name: "Eddie"
+  last_name: "Police-Officer"
+  name: "Homer Simpson"
+
+lou_chk:
+  person_label: "lou"
+  first_name: "Lou"
+  last_name: "Police-Officer"
+  name: "Homer Simpson"
