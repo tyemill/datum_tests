@@ -1,12 +1,6 @@
 
 Prsn = DatumStruct.new(:first_name, :last_name, :name, :short_name)
 
-
-#homer = Datum::OpenStruct.new
-#homer.first_name = "Homer"
-#homer.last_name = "Simpson"
-#homer.status_mask = 2
-
 homer = Prsn.new(
   "Homer",
   "Simpson",
