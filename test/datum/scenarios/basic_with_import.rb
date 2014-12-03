@@ -4,16 +4,14 @@
   last_name: "Simpson",
   status_mask: OFFLINE_STATUS_MASK)
 
-@homer = @marge.dup
-@homer.first_name = "Homer"
-@homer.save
+@homer = Person.create(clone_resource(@marge,
+  {"first_name" => "Homer"}))
 
-@bart = @marge.dup
-@bart.first_name = "Bart"
-@bart.status_mask = ONLINE_STATUS_MASK
-@bart.save
+@bart = Person.create(clone_resource(@marge,
+  { "first_name" => "Bart",
+    "status_mask" => ONLINE_STATUS_MASK}))
 
-import_scenario :imported_by_basic
+import_scenario :imported_by_basic # will give us clancy, eddie
 
 @lou = Person.create first_name: "Lou", last_name: @eddie.last_name,
   status_mask: ONLINE_STATUS_MASK

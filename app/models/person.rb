@@ -1,4 +1,5 @@
 class Person < ActiveRecord::Base
+
   validates_presence_of :first_name, :last_name
 
   # "John Doe" from first_name: "John", last_name: "Doe"

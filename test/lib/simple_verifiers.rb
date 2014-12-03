@@ -23,7 +23,7 @@ module SimpleVerifiers
 
     assert_equal @datum.id == 1 ? str : "#{str} #{@datum.id}",
     @datum.basic_string
-    assert_equal @datum.id, @datum.datum_label
+    assert_equal true, @datum.datum_label.end_with?(@datum.id.to_s)
     assert_equal @datum.id, @datum.basic_int
     assert_equal true, @datum.basic_true_boolean
     assert_equal false, @datum.basic_false_boolean

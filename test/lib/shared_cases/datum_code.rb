@@ -10,10 +10,10 @@ end
 data_test "extended" do
   case @datum.id
   when 1
-    assert_equal @datum.datum_label, 1
+    assert @datum.datum_label.ends_with? "1"
     assert_equal @datum.third_value, ONLINE_STATUS_MASK  # erb - const ref
   when 2
-    assert_equal @datum.datum_label, 2
+    assert @datum.datum_label.ends_with? "2"
     assert_equal @datum.third_value, "blah blah" #erb, require, w method call
   else
     assert false, "Unknown id for extended datum cases. Unk id: #{@datum.id}"

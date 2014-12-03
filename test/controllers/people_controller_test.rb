@@ -4,6 +4,7 @@ class PeopleControllerTest < ActionController::TestCase
   setup do
     process_scenario :simpsons_scenario
     @person = @marge
+
   end
 
   test "should get index" do
@@ -19,7 +20,9 @@ class PeopleControllerTest < ActionController::TestCase
 
   test "should create person" do
     assert_difference('Person.count') do
-      post :create, person: { first_name: @person.first_name, last_name: @person.last_name, status_mask: @person.status_mask }
+      post :create,
+      person: { first_name: "Goober", last_name: @person.last_name,
+        status_mask: @person.status_mask }
     end
 
     assert_redirected_to person_path(assigns(:person))
@@ -36,7 +39,8 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should update person" do
-    patch :update, id: @person, person: { first_name: @person.first_name, last_name: @person.last_name, status_mask: @person.status_mask }
+    patch :update, id: @person, person: { first_name: @person.first_name,
+      last_name: @person.last_name, status_mask: @person.status_mask }
     assert_redirected_to person_path(assigns(:person))
   end
 
