@@ -7,6 +7,10 @@ data_test "import" do
   verify_basic_datum
 end
 
+data_test "open_basic" do
+  verify_basic_datum ## basic.scenario should be loaded - values correct
+end
+
 data_test "extended" do
   case @datum.id
   when 1

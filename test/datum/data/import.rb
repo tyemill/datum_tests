@@ -1,6 +1,6 @@
 
 
-data_import :basic
+import_data :basic
 
 define_datum basic_string: "basic_string 5",
   basic_int: 5,

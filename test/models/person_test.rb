@@ -1,16 +1,5 @@
 require 'test_helper'
-
-
-
-
 class PersonTest < ActiveSupport::TestCase
-
-  #data_test "simpsons_name_check" do
-  #  process_scenario :basic_with_import
-  #  psn = self.send(@datum.person_label)
-  #  assert_equal @datum.first_name, psn.first_name
-  #  assert_equal @datum.last_name, psn.last_name
-  #end
 
   data_test "simpsons_name_check" do
     process_scenario :basic_with_import
@@ -19,6 +8,7 @@ class PersonTest < ActiveSupport::TestCase
     assert @datum.last_name, person_to_check.last_name
     assert @datum.name, person_to_check.name
     assert @datum.short_name, person_to_check.short_name
+    #puts "tested: #{@datum.name}"
   end
 
 

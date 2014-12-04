@@ -7,23 +7,19 @@ homer = Prsn.new(
   "Homer Simpson",
   "Homer S.")
 
-Prsn.new(
+marge = Prsn.new(
   "Marge",
   homer.last_name,
   "Marge #{homer.last_name}",
   "Marge S.")
 
-Prsn.new(
-  "Bart",
-  homer.last_name,
-  "Bart #{homer.last_name}",
-  "Bart S.")
 
-eddie = Prsn.new(
-  "Eddie",
-  "Police-Officer",
-  "Eddie Police-Officer",
-  "Eddie P.")
+marge.dup({first_name: "Bart", name: "Bart #{homer.last_name}",
+  short_name: "Bart S."})
+
+
+eddie = Prsn.new({first_name: "Eddie", name: "Eddie Police-Officer",
+  last_name: "Police-Officer", short_name: "Eddie P."})
 
 Prsn.new(
   "Clancy",
