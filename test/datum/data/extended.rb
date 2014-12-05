@@ -1,13 +1,10 @@
 
-first_value = "The first first value"
 
-define_datum first_value: first_value,
-  second_value: "The first second value",
-  third_value: ONLINE_STATUS_MASK
+Etnd = DatumStruct.new(:first_value, :second_value, :third_value)
 
-require 'datum/data/test_code/random'
+Etnd.new("The first first value", "The first second value", ONLINE_STATUS_MASK)
 
-define_datum first_value: first_value,
-  second_value: "The second second value",
-  third_value: TestCode::Random.get_blah_blah
+#require 'datum/data/test_code/random'
 
+#Etnd.dup({second_value: "The second second value",
+#  third_value: TestCode::Random.get_blah_blah})

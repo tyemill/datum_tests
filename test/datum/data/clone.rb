@@ -1,7 +1,7 @@
+Cln = DatumStruct.new(:basic_string, :basic_int, :basic_true_boolean,
+  :basic_false_boolean)
 
-h = {basic_string: "basic_string", basic_int: 1, basic_true_boolean: true,
-  basic_false_boolean: false}
+basic_struct = Cln.new({basic_string: "clone start string", basic_int: 1,
+  basic_true_boolean: true, basic_false_boolean: false})
 
-define_datum h
-x = h.dup; x[:basic_string] = "cloned basic_string"
-define_datum x
+basic_struct.dup({basic_string: "cloned basic_string"})

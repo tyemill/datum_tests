@@ -7,8 +7,9 @@ Bsic = DatumStruct.new(:basic_string, :basic_int, :basic_true_boolean,
   :basic_false_boolean)
 
 Bsic.new "basic_string", OFFLINE_STATUS_MASK, true, false
-Bsic.new "basic_string 2", 2, true, false
-Bsic.new "basic_string 3", 3, true, false
+#Bsic.new "basic_string 2", 2, true, false
+#Bsic.new "basic_string 3", 3, true, false
+#Bsic.new "basic_string 4", 4, true, false
 
 
 # define_datum basic_string: "basic_string",
