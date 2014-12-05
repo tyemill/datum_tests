@@ -11,7 +11,7 @@
   { "first_name" => "Bart",
     "status_mask" => ONLINE_STATUS_MASK}))
 
-Scenario.import :imported_by_basic # will give us clancy, eddie
+Dataum::Scenario.import :imported_by_basic # will give us clancy, eddie
 
 @lou = Person.create first_name: "Lou", last_name: @eddie.last_name,
   status_mask: ONLINE_STATUS_MASK
