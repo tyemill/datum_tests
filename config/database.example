@@ -1,0 +1,35 @@
+# PostgreSQL.
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: datum_tsts_dev
+
+  # don't need this if you installed postgres (the account of dev is the
+  # same as the account of the installer)
+  #username: acea
+  # The password associated with the postgres role (username).
+  #password:
+  #host: localhost
+  #port: 5432
+  #schema_search_path: myapp,sharedapp,public
+  #min_messages: notice
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: datum_tsts_test
+
+production:
+  <<: *default
+  database: datum_tsts_prod
+  username: datum_tests
+  password: <%= ENV['DATUM_TESTS_DATABASE_PASSWORD'] %>

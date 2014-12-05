@@ -1,8 +1,9 @@
 PATH
   remote: ../datum
   specs:
-    datum (4.0.0)
-      rails (~> 4.1.7)
+    datum (0.9.2)
+      mysql2 (>= 0.3.11)
+      rails (>= 3.2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -70,6 +71,7 @@ GEM
     mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
+    mysql2 (0.3.17)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     pg (0.17.1)
