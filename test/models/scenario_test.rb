@@ -3,6 +3,9 @@ require 'test_helper'
 
 class ScenarioTest < ActiveSupport::TestCase
 
+  #test "should load basic scenario" do
+  #  process_scenario :simpsons_scenario
+  #end
 
   parse_in Rails.root.join('test', 'lib', 'shared_cases', 'scenario_code.rb')
   #test "should verify basic scenario 2" do
