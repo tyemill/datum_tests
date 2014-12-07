@@ -13,10 +13,8 @@ marge = Prsn.new(
   "Marge #{homer.last_name}",
   "Marge S.")
 
-
 marge.dup({first_name: "Bart", name: "Bart #{homer.last_name}",
   short_name: "Bart S."})
-
 
 eddie = Prsn.new({first_name: "Eddie", name: "Eddie Police-Officer",
   last_name: "Police-Officer", short_name: "Eddie P."})
@@ -30,5 +28,5 @@ Prsn.new(
 Prsn.new(
   "Lou",
   eddie.last_name,
-  "Marge #{eddie.last_name}",
+  "Lou #{eddie.last_name}",
   "Lou P.")
