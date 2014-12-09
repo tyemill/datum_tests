@@ -20,6 +20,13 @@ def parse_in file
   eval(File.read(file))
 end
 
+def check_datum_properties method_name
+  assert @datum, "Datum is nil"
+  m, i = Datum.parse_test_name(@datum.datum_test_method)
+  assert_equal method_name.to_s, m
+  assert_equal @datum.datum_id, (i + 1)
+end
+
 Capybara.register_driver :firefox_driver do |app|
   Capybara::Selenium::Driver.new(app, :browser => :firefox,
     :profile => 'name_of_existing_profile')

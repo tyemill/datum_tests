@@ -3,7 +3,7 @@
 #Datum.reusable_struct Bsic, DatumStruct.new(:basic_string, :basic_int,
 #  :basic_true_boolean, :basic_false_boolean)
 
-Bsic = DatumStruct.new(:basic_string, :basic_int, :basic_true_boolean,
+Bsic = Datum::DatumStruct.new(:basic_string, :basic_int, :basic_true_boolean,
   :basic_false_boolean)
 
 Bsic.new "basic_string", OFFLINE_STATUS_MASK, true, false
