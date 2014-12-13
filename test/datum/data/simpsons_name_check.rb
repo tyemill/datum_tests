@@ -30,3 +30,7 @@ Prsn.new(
   eddie.last_name,
   "Lou #{eddie.last_name}",
   "Lou P.")
+
+def expected_length
+  6
+end
