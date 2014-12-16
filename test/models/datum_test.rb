@@ -2,6 +2,17 @@ require 'test_helper'
 
 class DatumTest < ActiveSupport::TestCase
 
+  #f = Bar::Foo.new
+  #f.goo
+  #f.bar
+
+  Foo.bar
+  #Foo.problem
+  #Foo.goo
+
+  #f = Foo.new
+  #f.goo
+
   # data_test "base_test" do
   #   #:base_string, :base_array
   #   #Bs.new "base 1", ["str 1", true, false, {one: "one", two: "two"}]

@@ -7,7 +7,13 @@ class ScenarioTest < ActiveSupport::TestCase
   #  process_scenario :simpsons_scenario
   #end
 
-  parse_in Rails.root.join('test', 'lib', 'shared_cases', 'scenario_code.rb')
+  #parse_in Rails.root.join('test', 'lib', 'shared_cases', 'scenario_code.rb')
+
+  test "should load basic scenario" do
+    process_scenario :simpsons_scenario
+  end
+
+
   #test "should verify basic scenario 2" do
   #  process_scenario :simpsons_scenario
   #  verify_basic_scenario @marge, @homer, @bart
