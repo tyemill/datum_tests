@@ -26,15 +26,15 @@ class DatumTest < ActiveSupport::TestCase
   # end
 
   data_test "basic" do
-    chr = (@datum.datum_id + 64).chr
-    assert_equal "#{chr} String", @datum.a_string, "a_string invalid"
-    assert_equal @datum.datum_id, @datum.a_int
-    assert_equal !!@datum.a_true_boolean, @datum.a_true_boolean
-    assert @datum.a_true_boolean
-    assert_equal !!@datum.a_false_boolean, @datum.a_false_boolean
-    assert_not @datum.a_false_boolean
+#    chr = (@datum.datum_id + 64).chr
+#    assert_equal "#{chr} String", @datum.a_string, "a_string invalid"
+#    assert_equal @datum.datum_id, @datum.a_int
+#    assert_equal !!@datum.a_true_boolean, @datum.a_true_boolean
+#    assert @datum.a_true_boolean
+#    assert_equal !!@datum.a_false_boolean, @datum.a_false_boolean
+#    assert_not @datum.a_false_boolean
 
-    check_datum_properties(__method__, expected_length)
+#    check_datum_properties(__method__, expected_length)
 
   end
 end

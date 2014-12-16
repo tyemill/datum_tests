@@ -4,34 +4,12 @@
 #  :basic_true_boolean, :basic_false_boolean)
 
 
-Bsic = DatumStruct.new(:a_string, :a_int, :a_true_boolean, :a_false_boolean)
+Bsic = Datum::DatumStruct.new(:a_string, :a_int, :a_true_boolean, :a_false_boolean)
 Bsic.new "A String", OFFLINE_STATUS_MASK, true, false
-Bsic.new "B String", ONLINE_STATUS_MASK, true, false
-Bsic.new "C String", 3, true, false
-Bsic.new "D String", 4, true, false
+#Bsic.new "B String", ONLINE_STATUS_MASK, true, false
+#Bsic.new "C String", 3, true, false
+#Bsic.new "D String", 4, true, false
 
 def expected_length
   4
 end
-
-
-# define_datum basic_string: "basic_string",
-#   basic_int: OFFLINE_STATUS_MASK,
-#   basic_true_boolean: true,
-#   basic_false_boolean: false
-
-# define_datum basic_string: "basic_string 2",
-#   basic_int: ONLINE_STATUS_MASK,
-#   basic_true_boolean: true,
-#   basic_false_boolean: false
-
-# define_datum basic_string: "basic_string 3",
-#   basic_int: 3,
-#   basic_true_boolean: true,
-#   basic_false_boolean: false
-
-# define_datum basic_string: "basic_string 4",
-#   basic_int: 4,
-#   basic_true_boolean: true,
-#   basic_false_boolean: false
-
