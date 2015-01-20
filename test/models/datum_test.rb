@@ -6,7 +6,7 @@ class DatumTest < ActiveSupport::TestCase
   #f.goo
   #f.bar
 
-  Foo.bar
+  #Foo.bar
   #Foo.problem
   #Foo.goo
 

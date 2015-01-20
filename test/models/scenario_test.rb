@@ -13,11 +13,10 @@ class ScenarioTest < ActiveSupport::TestCase
     process_scenario :simpsons_scenario
   end
 
-
-  #test "should verify basic scenario 2" do
-  #  process_scenario :simpsons_scenario
-  #  verify_basic_scenario @marge, @homer, @bart
-  #end
+  test "should verify basic scenario" do
+    process_scenario :simpsons_scenario
+    verify_basic_scenario @marge, @homer, @bart
+  end
 
   test "should make sure simpsons are undefined" do
     assert @homer.nil?, "Homer should be nil"
