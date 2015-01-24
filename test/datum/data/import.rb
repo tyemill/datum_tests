@@ -1,5 +1,5 @@
 
-Bsic = DatumStruct.new(:basic_string, :basic_int, :basic_true_boolean,
+Bsic = Datum.new(:basic_string, :basic_int, :basic_true_boolean,
   :basic_false_boolean)
 
 #import_data :basic

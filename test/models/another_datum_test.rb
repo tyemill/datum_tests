@@ -22,5 +22,6 @@ class AnotherDatumTest < ActiveSupport::TestCase
     }
     assert_equal @datum.datum_id + 2, i
     #check_datum_properties(__method__, base_expected_length)
+
   end
 end

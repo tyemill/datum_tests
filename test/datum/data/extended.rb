@@ -1,6 +1,6 @@
 
 
-Etnd = DatumStruct.new(:first_value, :second_value, :third_value)
+Etnd = Datum.new(:first_value, :second_value, :third_value)
 
 Etnd.new("The first first value", "The first second value", ONLINE_STATUS_MASK)
 

@@ -25,5 +25,6 @@ class DatumTest < ActiveSupport::TestCase
     assert_not @datum.a_false_boolean
 #    check_datum_properties(__method__, expected_length)
 
+    #puts @datum.inspect
   end
 end

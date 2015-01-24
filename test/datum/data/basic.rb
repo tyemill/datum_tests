@@ -4,7 +4,7 @@
 #  :basic_true_boolean, :basic_false_boolean)
 
 
-Bsic = Datum::DatumStruct.new(:a_string, :a_int, :a_true_boolean, :a_false_boolean)
+Bsic = Datum.new(:a_string, :a_int, :a_true_boolean, :a_false_boolean)
 Bsic.new "A String", OFFLINE_STATUS_MASK, true, false
 Bsic.new "B String", ONLINE_STATUS_MASK, true, false
 #Bsic.new "C String", 3, true, false

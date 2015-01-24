@@ -1,5 +1,5 @@
 
-Prsn = Datum::DatumStruct.new(:first_name, :last_name, :name, :short_name)
+Prsn = Datum.new(:first_name, :last_name, :name, :short_name)
 
 homer = Prsn.new(
   "Homer",

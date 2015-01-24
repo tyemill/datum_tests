@@ -1,6 +1,6 @@
 
 
-Bs = Datum::DatumStruct.new(:base_string, :base_array)
+Bs = Datum.new(:base_string, :base_array)
 Bs.new "base 1", ["str 1", true, false, {one: "one", two: "two"}]
 Bs.new "base 2", ["str 2", true, false, {two: "two", three: "three"}]
 Bs.new "base 3", ["str 3", true, false, {three: "three", four: "four"}]
