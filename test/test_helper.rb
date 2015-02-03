@@ -16,53 +16,70 @@ class ActiveSupport::TestCase
   include OddsEnds
 end
 
-def parse_in file
-  eval(File.read(file))
+def parse_in file, bind
+  eval(File.read(file), bind)
 end
 
-
+## method_name: the name of the data_method - __method__
+## expected: the count of expected iterations
 def check_datum_properties method_name, expected
-  verify_datum method_name, @datum, expected
-  assert_nil Datum.context; assert_not_nil Datum.data_files
-  dk = DataFile.datum_key(@datum.datum_test_instance, @datum.datum_test_method)
-  d = Datum.loaded_data[dk]
-  assert_not_nil d, "datum should be stored in loaded_data"
-  verify_datum method_name, d, expected
+  validate_datum @datum, method_name
+  validate_container method_name, expected
 end
 
-def verify_datum method_name, datum, expected
-  assert_equal datum.datum_id, datum.datum_data_file.called_tests.length
-  if datum.datum_id == datum.datum_length
-    assert_equal expected, datum.datum_id
-    assert_equal expected, datum.datum_length
-    assert_equal expected, datum.datum_data_file.called_tests.length
-    ar = Array.new datum.datum_data_file.called_tests
-    for i in 0..(ar.length - 1)
-      assert_not_nil(x = ar.index(z = i + 1), "idx of #{z} in #{ar} is nil")
-      assert_not_nil(r = ar.delete_at(x), "rmv #{x} of #{z} in #{ar} is nil")
-    end
-    assert_equal 0, ar.length
-  else
-    assert datum.datum_id <= expected, "datum id is <= than expected"
-  end
-  assert_equal method_name.to_s, datum.datum_data_method
-  assert_equal self.class, datum.datum_test_instance; assert_not_nil datum
-  m, i = Datum::Utils.test_to_data_method_with_index(datum.datum_test_method)
-  assert_equal(datum.datum_id, i)
-  assert_equal(datum.datum_data_method, m)
-  assert(datum.datum_id <= datum.datum_length)
-  assert(datum.datum_id <= datum.datum_count)
-  df = Datum.data_files[datum.datum_data_method.to_sym]
-  pdf = datum.datum_data_file
-  assert_not_nil pdf; assert_not_nil df; assert_equal df, pdf
-  assert_not_equal 0, df.test_count; assert datum.datum_id <= df.test_count
-  assert_not_nil df.test_instance; assert_equal df.test_instance, self.class
-  assert_equal df.data_method, datum.datum_data_method
-  tst_name = DataFile.data_test_method(df.data_method, datum.datum_id)
-  d_key = DataFile.datum_key(df.test_instance, tst_name)
-  assert_not_nil d_key; assert Datum.loaded_data.has_key? d_key
-  assert_equal(datum.datum_test_method, tst_name)
+def validate_datum datum, method_name, complete = false
+  assert_not_nil datum, "datum is nil"
+  assert_not_nil datum.datum_id, "datum.datum_id is nil"
+  assert_not_nil datum.test_method_name, "datum.test_method_name is nil"
+  method_index = ::Datum::Helpers.index_from_test_name datum.test_method_name
+  assert_equal method_index, datum.datum_id, "datum_id not aligned"
+  assert_equal true, datum.invoked, "datum.invoked"
+  assert_equal complete, datum.complete, "datum.complete"
 end
+
+def validate_container method_name, expected
+  con = @datum.container
+  assert_not_nil con, "@datum.container is nil"
+  assert_not_nil con.data, "datum.container.data is nil"
+  assert con.length != 0, "datum.container.length is 0"
+  assert con.count != 0, "datum.container.length is 0"
+  assert con.size != 0, "datum.container.length is 0"
+  assert con.test_count != 0, "datum.container.test_count is 0"
+  assert_equal method_name.to_s, con.data_method_name
+  assert_equal self.class, con.test_instance
+
+  if @datum.datum_id == con.count # last test
+    assert_equal expected, @datum.datum_id
+    assert_equal expected, con.data.length, "data length"
+    assert_equal expected, con.length, "container length"
+    assert_equal expected, con.count, "container count"
+    assert_equal expected, con.size, "container size"
+    assert_equal expected, con.test_count, "container test_count"
+    con.data.each do |d|
+      validate_datum d, method_name, d.datum_id != con.count
+      #assert ::Datum.loaded_data.has_value?(d), "::Datum.loaded_data missing"
+    end
+    validate_directories
+
+    #puts " "; puts "--"; puts ::Datum.containers.keys; puts "--"; puts " "
+  else
+    chk_less @datum.datum_id, expected, "datum_id"
+  end
+end
+
+def validate_directories
+  assert_not_nil ::Datum.path, "::Datum.path"
+  assert_not_nil ::Datum.data_path, "::Datum.data_path"
+  assert_not_nil ::Datum.scenario_path, "::Datum.scenario_path"
+  assert_equal Rails.root.join('test', 'datum'), ::Datum.path
+  assert_equal Rails.root.join('test', 'datum', 'data'), ::Datum.data_path
+  assert_equal Rails.root.join('test', 'datum', 'scenarios'), ::Datum.scenario_path
+end
+
+def chk_less lesser, greater, attrib
+  assert lesser < greater, "#{attrib} is >= #{greater}, actual: #{lesser}"
+end
+
 
 #test_instance, data_test_method
 

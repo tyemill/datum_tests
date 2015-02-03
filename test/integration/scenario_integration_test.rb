@@ -5,6 +5,6 @@ class ScenarioIntegrationTest < ActionDispatch::IntegrationTest
     Capybara.current_driver = Capybara.javascript_driver # :selenium by default
   end
 
-  parse_in Rails.root.join('test', 'lib', 'shared_cases', 'scenario_code.rb')
+  parse_in Rails.root.join('test', 'lib', 'shared_cases', 'scenario_code.rb'), binding
 
 end

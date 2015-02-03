@@ -1,45 +1,34 @@
+data_test "base_test" do
+  #:base_string, :base_array
+  #Bs.new "base 1", ["str 1", true, false, {one: "one", two: "two"}]
+  assert @datum.base_string.is_a? String
+  assert_equal "base #{@datum.datum_id}", @datum.base_string
+  assert @datum.base_array.is_a? Array
+  assert_equal 4, @datum.base_array.length
+  assert @datum.base_array[0].is_a? String
+  assert_equal "str #{@datum.datum_id}", @datum.base_array[0]
+  assert_equal !!@datum.base_array[1], @datum.base_array[1]
+  assert @datum.base_array[1]
+  assert_equal !!@datum.base_array[2], @datum.base_array[2]
+  assert_not @datum.base_array[2]
+  assert @datum.base_array[3].is_a? Hash
+  i = @datum.datum_id
+  @datum.base_array[3].each_pair { |key, value|
+    sym = NUM_HLPR[i].to_sym; str = NUM_HLPR[i].to_str
+    assert_equal key, sym; assert_equal value, str; i += 1
+  }
+  assert_equal @datum.datum_id + 2, i
+  check_datum_properties(__method__, base_expected_length)
+end
 
 data_test "basic" do
-  puts "in basic: #{@datum}"
- #verify_basic_datum ## basic.scenario should be loaded - values correct
-end
-
-data_test "import" do
-  puts "in import: #{@datum}"
-# verify_basic_datum
-end
-
-#data_test "open_basic" do
-#  verify_basic_datum ## basic.scenario should be loaded - values correct
-#end
-
-data_test "extended" do
-  puts "in extended: #{@datum}"
-  #case @datum.datum_info.id
-  #when 1
-  #  assert @datum.datum_info.test_name.ends_with? "1"
-  #  assert_equal @datum.third_value, ONLINE_STATUS_MASK  # erb - const ref
-  #when 2
-  #  assert @datum.datum_info.test_name.ends_with? "2"
-  #  assert_equal @datum.third_value, "blah blah" #erb, require, w method call
-  #else
-  #  assert false, "Unknown id for extended datum cases. Unk id: #{@datum.datum_info.id}"
-  #end
-end
-
-data_test "clone" do
-  puts "in clone: #{@datum}"
-#   assert_equal @datum.basic_int, 1
-#   assert_equal @datum.basic_true_boolean, true
-#   assert_equal @datum.basic_false_boolean, false
-
-#   case @datum.id
-#   when 1
-#     assert_equal @datum.basic_string, "basic_string"
-#   when 2
-#     assert_equal @datum.basic_string, "cloned basic_string"
-#   else
-#     assert false, "Unknown id for extended datum cases. Unk id: #{@datum.id}"
-#   end
-
+  chr = (@datum.datum_id + 64).chr
+  assert_equal "#{chr} String", @datum.a_string, "a_string invalid"
+  assert_equal @datum.datum_id, @datum.a_int
+  assert_equal !!@datum.a_true_boolean, @datum.a_true_boolean
+  assert @datum.a_true_boolean
+  assert_equal !!@datum.a_false_boolean, @datum.a_false_boolean
+  assert_not @datum.a_false_boolean
+  check_datum_properties(__method__, expected_length)
+  #puts @datum.inspect
 end
