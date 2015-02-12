@@ -32,9 +32,9 @@ def validate_datum datum, method_name, complete = false
   assert_not_nil datum.datum_id, "datum.datum_id is nil"
   assert_not_nil datum.test_method_name, "datum.test_method_name is nil"
   method_index = ::Datum::Helpers.index_from_test_name datum.test_method_name
-  assert_equal method_index, datum.datum_id, "datum_id not aligned"
-  assert_equal true, datum.invoked, "datum.invoked"
-  assert_equal complete, datum.complete, "datum.complete"
+  assert_equal method_index, datum.datum_id
+  data_method = ::Datum::Helpers.data_method_from_test_name datum.test_method_name
+  assert_equal method_name.to_s, data_method
 end
 
 def validate_container method_name, expected
@@ -55,7 +55,7 @@ def validate_container method_name, expected
     assert_equal expected, con.count, "container count"
     assert_equal expected, con.size, "container size"
     assert_equal expected, con.test_count, "container test_count"
-    con.data.each do |d|
+    con.data.each_pair do |k, d|
       validate_datum d, method_name, d.datum_id != con.count
       #assert ::Datum.loaded_data.has_value?(d), "::Datum.loaded_data missing"
     end
