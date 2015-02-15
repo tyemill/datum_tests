@@ -64,8 +64,6 @@ def validate_container method_name, expected
       #assert ::Datum.loaded_data.has_value?(d), "::Datum.loaded_data missing"
     end
     validate_directories
-
-    #puts " "; puts "--"; puts ::Datum.containers.keys; puts "--"; puts " "
   else
     chk_less @datum.datum_id, expected, "datum_id"
   end
