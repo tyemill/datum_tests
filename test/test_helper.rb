@@ -47,6 +47,10 @@ def validate_container method_name, expected
   assert con.test_count != 0, "datum.container.test_count is 0"
   assert_equal method_name.to_s, con.data_method_name
   assert_equal self.class, con.test_instance
+  assert_equal con.length, con.data.length
+  assert_equal con.count, con.data.length
+  assert_equal con.size, con.data.length
+  assert_equal con.test_count, con.data.length
 
   if @datum.datum_id == con.count # last test
     assert_equal expected, @datum.datum_id
