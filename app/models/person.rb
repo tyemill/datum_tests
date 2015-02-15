@@ -11,5 +11,4 @@ class Person < ActiveRecord::Base
   def short_name
     "#{self.first_name} #{self.last_name.capitalize[0]}."
   end
-
 end
