@@ -23,6 +23,6 @@ group :development, :test do
 
   #gem "datum"
   #gem "datum", :git => 'https://github.com/tyemill/datum.git', :branch => '2014_edge'
-  gem "datum", '>= 4.0.5'
-  #gem "datum", :path => '../datum' # localdev
+  #gem "datum", '>= 4.0.5'
+  gem "datum", :path => '../datum' # localdev
 end
