@@ -44,7 +44,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    database_cleaner (1.4.1)
+    database_cleaner (1.8.5)
     datum (4.1.6)
       rails (>= 4.1.7)
     docile (1.1.5)
